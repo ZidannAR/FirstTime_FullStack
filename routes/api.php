@@ -10,8 +10,8 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::apiResource('post',PostController::class);
-Route::put('post/{id}', [PostController::class, 'update']);
+// Route::put('post/{id}', [PostController::class, 'update']);
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
-Route::post('/ logout', [AuthController::class,'logout']);
+Route::post('/logout', [AuthController::class,'logout'])->middleware('auth:sanctum');
