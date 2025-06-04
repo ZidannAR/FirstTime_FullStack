@@ -4,13 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Post extends Model
 {
     protected $fillable = ['title','body'];
 
-    public function posts()
+    public function user()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(User::class);
     }
 }
